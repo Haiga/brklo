@@ -13,7 +13,7 @@ from source.helper.RetrieverPredictHelper import RetrieverPredictHelper
 def fit(params):
     if params.model.type == "retriever":
         helper = RetrieverFitHelper(params)
-        helper.perform_fit()
+        helper.perform_fit(mysamples)
     elif params.model.type == "reranker":
         helper = RerankerFitHelper(params)
         helper.perform_fit()

@@ -8,15 +8,17 @@ from source.dataset.RetrieverFitDataset import RetrieverFitDataset
 
 
 class RetrieverDataModule(pl.LightningDataModule):
-    def __init__(self, params, tokenizer, fold_idx):
+    def __init__(self, params, tokenizer, fold_idx, mysamples):
         super(RetrieverDataModule, self).__init__()
         self.params = params
         self.tokenizer = tokenizer
         self.fold_idx = fold_idx
+        self.samples = mysamples
 
     def prepare_data(self):
-        with (open(f"{self.params.dir}samples.pkl", "rb") as dataset_file):
-            self.samples = []
+        x = 1
+        #with (open(f"{self.params.dir}samples.pkl", "rb") as dataset_file):
+        #    self.samples = []
             # pickle.load(dataset_file)
 
     def setup(self, stage=None):

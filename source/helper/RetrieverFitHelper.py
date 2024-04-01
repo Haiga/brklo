@@ -16,7 +16,7 @@ class RetrieverFitHelper(Helper):
         self.params = params
         logging.basicConfig(level=logging.INFO)
 
-    def perform_fit(self):
+    def perform_fit(self, mysamples):
         seed_everything(707, workers=True)
         for fold_idx in self.params.data.folds:
             logging.info(
@@ -42,7 +42,8 @@ class RetrieverFitHelper(Helper):
             datamodule = RetrieverDataModule(
                 params=self.params.data,
                 tokenizer=self.get_tokenizer(),
-                fold_idx=fold_idx)
+                fold_idx=fold_idx,
+                mysamples=mysamples)
 
             # model
             model = RetrieverModel(self.params.model)
