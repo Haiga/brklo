@@ -25,6 +25,8 @@ class RetrieverFitHelper(Helper):
 
             # Initialize a trainer
             trainer = pl.Trainer(
+                num_sanity_val_steps=0,
+                fast_dev_run=1,
                 accelerator=self.params.trainer.accelerator,
                 devices=self.params.trainer.devices,
                 max_epochs=self.params.trainer.max_epochs,
