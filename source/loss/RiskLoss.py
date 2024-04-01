@@ -12,15 +12,17 @@ class RiskLoss(nn.Module):
         self.miner = RelevanceMiner(params.miner)
         self.criterion = TripletMarginLoss()
 
+        self.myquery_idx = []
+        self.myquery_rpr = []
+        self.mypassage_idx = []
+        self.mypassage_rpr = []
+
     def forward(self, query_idx, query_rpr, passage_idx, passage_rpr):
-        global myquery_idx
-        global myquery_rpr
-        global mypassage_idx
-        global mypassage_rpr
-        myquery_idx = query_idx
-        myquery_rpr = query_rpr
-        mypassage_idx = passage_idx
-        mypassage_rpr = passage_rpr
+
+        self.myquery_idx = query_idx
+        self.myquery_rpr = query_rpr
+        self.mypassage_idx = passage_idx
+        self.mypassage_rpr = passage_rpr
         print("---------------------------")
         print(query_idx, query_rpr, passage_idx, passage_rpr)
         print("----------------------flag-------------")
