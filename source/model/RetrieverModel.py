@@ -17,9 +17,10 @@ class RetrieverModel(LightningModule):
         self.encoder = instantiate(hparams.encoder)
         print(hparams)
         print(hparams.dropouts)
+        dropoutsarr = [0.1, 0.1, 0.1]
         # dropout layers
         self.dropouts = [
-            torch.nn.Dropout(p) for p in hparams.dropouts
+            torch.nn.Dropout(p) for p in dropoutsarr
         ]
 
         # loss function
