@@ -16,7 +16,7 @@ class RetrieverFitHelper(Helper):
         self.params = params
         logging.basicConfig(level=logging.INFO)
 
-    def perform_fit(self, mysamples):
+    def perform_fit(self, mysamples, mydict={}):
         seed_everything(707, workers=True)
         for fold_idx in self.params.data.folds:
             logging.info(
@@ -49,6 +49,8 @@ class RetrieverFitHelper(Helper):
 
             # model
             model = RetrieverModel(self.params.model)
+            mydict["model"] = model
+            mydict["loss"] = model.loss
 
             # Train the ⚡ model
             trainer.fit(

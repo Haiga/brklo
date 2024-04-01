@@ -25,4 +25,6 @@ class RiskLoss(nn.Module):
         print(query_idx, query_rpr, passage_idx, passage_rpr)
         print("----------------------flag-------------")
         miner_outs = self.miner.mine(query_idx=query_idx, passage_idx=passage_idx)
+
+        raise Exception("returning to test")
         return self.criterion(query_rpr, None, miner_outs, passage_rpr, None)
