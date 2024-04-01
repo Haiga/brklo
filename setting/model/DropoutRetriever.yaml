@@ -27,7 +27,7 @@ metric:
 loss:
   _target_: source.loss.${model.loss.params.name}.${model.loss.params.name}
   params:
-    name: TripletLoss
+    name: RiskLoss
     miner:
       relevance_map:
         dir: ${data.dir}
