@@ -1,0 +1,49 @@
+name: RerankerBERT
+
+type: reranker
+
+encoder:
+  _target_: source.encoder.RerankerBERTEncoder.RerankerBERTEncoder
+  architecture: bert-base-uncased
+  output_attentions: False
+  output_hidden_states: True
+  pooling:
+    _target_: source.pooling.ConcatenatePooling.ConcatenatePooling
+
+hidden_size: 3072
+batch_size: ${data.batch_size}
+
+tokenizer:
+  architecture: ${model.encoder.architecture}
+
+metric:
+  relevance_map:
+    dir: ${data.dir}
+  num_relevant_labels: 64
+  index: ${eval.index}
+  scale: 20
+
+
+loss:
+  _target_: source.loss.RerankerLoss.RerankerLoss
+  params:
+    name: RerankerLoss
+    miner:
+      relevance_map:
+        dir: ${data.dir}
+    criterion:
+      temperature: 0.07
+
+num_classes: 2
+dropout: 0.1
+
+lr: 5e-5
+base_lr: 5e-6
+max_lr: 5e-4
+weight_decay: 1e-2
+
+#lr: 2e-5
+#base_lr: 1e-6
+#max_lr: 1e-4
+#weight_decay: 1e-2
+

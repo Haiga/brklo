@@ -1,0 +1,10 @@
+name: MSMARCO_RERANKING
+dir: resource/dataset/MSMARCO_RERANKING/
+
+folds: [0,1,2,3,4]
+
+query_max_length: 32
+passage_max_length: 256
+
+batch_size: 64
+num_workers: 12
