@@ -15,7 +15,8 @@ class RetrieverModel(LightningModule):
 
         # encoder
         self.encoder = instantiate(hparams.encoder)
-
+        print(hparams)
+        print(hparams.dropouts)
         # dropout layers
         self.dropouts = [
             torch.nn.Dropout(p) for p in hparams.dropouts
