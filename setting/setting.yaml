@@ -41,7 +41,7 @@ eval:
   label_cls: ["head","tail"]
   index:
     M: 128
-    indexThreadQty: ${data.num_workers}
+    indexThreadQty: 2
     efConstruction: 256
     post: 2
 
