@@ -10,7 +10,7 @@ encoder:
   pooling:
     _target_: source.pooling.ConcatenatePooling.ConcatenatePooling
 
-hidden_size: 3072
+hidden_size: 10
 
 tokenizer:
   architecture: ${model.encoder.architecture}
@@ -25,7 +25,7 @@ metric:
 loss:
   _target_: source.loss.${model.loss.params.name}.${model.loss.params.name}
   params:
-    name: TripletLoss
+    name: RiskLoss
     miner:
       relevance_map:
         dir: ${data.dir}

@@ -7,4 +7,7 @@ class RiskLoss(nn.Module):
         pass
 
     def forward(self, query_idx, query_rpr, passage_idx, passage_rpr):
+        print("---------------------------")
+        print(query_idx, query_rpr, passage_idx, passage_rpr)
+        print("----------------------flag-------------")
         pass
