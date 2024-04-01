@@ -3,7 +3,7 @@ defaults:
   - model: RerankerBERT
   - data: MSMARCO_RETRIEVING
 
-tasks: ["retrieve"]
+tasks: ["fit"]
 
 trainer:
   max_epochs: 5
