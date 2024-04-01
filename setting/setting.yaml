@@ -1,11 +1,9 @@
 defaults:
   - _self_
-  - model: RetrieverBERT
+  - model: DropoutRetriever
   - data: MSMARCO_RETRIEVING
 
 tasks: ["fit"]
-
-dropouts: [0.1, 0.1, 0.1]
 
 trainer:
   max_epochs: 3
@@ -14,7 +12,7 @@ trainer:
   precision: 16-mixed
   patience: 3
   min_delta: 0.01
-  fast_dev_run: False
+  fast_dev_run: True
   progress_bar_refresh_rate: 10
 
 log:
