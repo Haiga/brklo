@@ -15,8 +15,8 @@ class RetrieverModel(LightningModule):
 
         # encoder
         self.encoder = instantiate(hparams.encoder)
-        print(hparams)
-        print(hparams.dropouts)
+        #print(hparams)
+        #print(hparams.dropouts)
         dropoutsarr = [0.1, 0.1, 0.1]
         # dropout layers
         self.dropouts = [
