@@ -6,8 +6,8 @@ defaults:
 tasks: ["fit"]
 
 trainer:
-  max_epochs: 5
-  accelerator: gpu
+  max_epochs: 3
+  accelerator: cpu
   devices: auto
   precision: 16-mixed
   patience: 3
