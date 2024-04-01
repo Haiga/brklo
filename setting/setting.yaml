@@ -5,6 +5,8 @@ defaults:
 
 tasks: ["fit"]
 
+dropouts: [0.1, 0.1, 0.1]
+
 trainer:
   max_epochs: 3
   accelerator: cpu
