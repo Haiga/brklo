@@ -15,8 +15,9 @@ class RetrieverDataModule(pl.LightningDataModule):
         self.fold_idx = fold_idx
 
     def prepare_data(self):
-        with open(f"{self.params.dir}samples.pkl", "rb") as dataset_file:
-            self.samples = pickle.load(dataset_file)
+        with (open(f"{self.params.dir}samples.pkl", "rb") as dataset_file):
+            self.samples = []
+            # pickle.load(dataset_file)
 
     def setup(self, stage=None):
 
