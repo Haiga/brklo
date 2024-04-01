@@ -1,6 +1,6 @@
 defaults:
   - _self_
-  - model: RerankerBERT
+  - model: RetrieverBERT
   - data: MSMARCO_RETRIEVING
 
 tasks: ["fit"]
